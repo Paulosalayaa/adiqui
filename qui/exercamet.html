@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backspace Navigation Example</title>
+</head>
+<body>
+    <h1>Press Backspace to go back</h1>
+
+    <script>
+        document.addEventListener('keydown', function(event) {
+            // Check if the pressed key is Backspace (key code 8)
+            if (event.key === 'Backspace' || event.keyCode === 8) {
+                // Check if no input elements are focused
+                var activeElement = document.activeElement;
+                if (!activeElement || (activeElement.tagName !== 'INPUT' && activeElement.tagName !== 'TEXTAREA')) {
+                    event.preventDefault(); // Prevent the default action
+                    window.history.back();  // Navigate to the previous page
+                }
+            }
+        });
+    </script>
+</body>
+</html>
